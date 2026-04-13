@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malarik Direwolf — Server Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-top">
+      <div class="brand">
+        <h1>Malarik Direwolf</h1>
+        <span class="subtitle">Server Guide</span>
+      </div>
+      <div id="status-widget">
+        <span class="status-dot checking" id="status-dot"></span>
+        <span id="status-text">Checking…</span>
+        <span id="status-players"></span>
+      </div>
+    </div>
+    <div class="search-row">
+      <input type="text" id="search" placeholder="Search guides, mods, commands…" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+  <nav class="tab-nav container" role="tablist">
+    <button class="tab-btn active" data-tab="getting-started" role="tab" aria-selected="true">Getting Started</button>
+    <button class="tab-btn" data-tab="mods" role="tab" aria-selected="false">Mods Guide</button>
+    <button class="tab-btn" data-tab="commands" role="tab" aria-selected="false">Commands</button>
+    <button class="tab-btn" data-tab="faq" role="tab" aria-selected="false">FAQ</button>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- ─── Search Results ──────────────────────────────────────── -->
+  <div id="search-results" role="region" aria-label="Search results"></div>
+
+  <!-- ─── Getting Started ─────────────────────────────────────── -->
+  <section id="tab-getting-started" class="tab-panel active" role="tabpanel">
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>What is Malarik Direwolf?</h2>
+      </div>
+      <div class="info-block searchable" data-tab="Getting Started" data-title="What is Malarik Direwolf">
+        <p>Malarik Direwolf is a private, curated modpack for Minecraft 1.21.1 running on NeoForge 21.1.222. It's a fork of FTB Evolution with all magic mods stripped out, leaving a focused tech and automation experience.</p>
+        <p>The pack is built around deep automation pipelines, ore processing chains, digital storage networks, and programmable computers. If you love spending hours optimizing factories — this is your pack.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card searchable" data-tab="Getting Started" data-title="Pack Focus">
+          <h3>Tech &amp; Automation</h3>
+          <p>No magic. No wands. Pure machines, pipes, and power. Mekanism, AE2, Create, and CC:Tweaked are the stars.</p>
+        </div>
+        <div class="card searchable" data-tab="Getting Started" data-title="Platform">
+          <h3>Minecraft 1.21.1 · NeoForge</h3>
+          <p>NeoForge 21.1.222. Install via CurseForge — the launcher handles all mod downloads automatically.</p>
+        </div>
+        <div class="card searchable" data-tab="Getting Started" data-title="Server">
+          <h3>Private Server</h3>
+          <p>Hosted on an Intel NUC running Ubuntu 24.04 headless. Ask Angelo for an invite before trying to connect.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Installation</h2>
+      </div>
+      <div class="searchable" data-tab="Getting Started" data-title="Installing via CurseForge">
+        <ol class="steps-list">
+          <li>Download and install the <strong>CurseForge app</strong> from curseforge.com/download/app.</li>
+          <li>Open CurseForge and click <strong>Minecraft</strong> in the left sidebar.</li>
+          <li>Go to <strong>Browse Modpacks</strong> and search for <code>Malarik Direwolf</code> (or ask Angelo for the direct pack link).</li>
+          <li>Click <strong>Install</strong>. CurseForge downloads all mods automatically — this may take a few minutes.</li>
+          <li>Once installed, click <strong>Play</strong> to launch. You'll get the NeoForge version of Minecraft 1.21.1.</li>
+          <li>In the game, go to <strong>Multiplayer → Add Server</strong> and enter the server address below.</li>
+        </ol>
+        <div class="tip" style="margin-top: 0.9rem;">
+          <div class="tip-label">Tip</div>
+          Allocate at least <strong>6 GB RAM</strong> to the CurseForge instance. Go to Settings → Minecraft → Java Settings and set the slider to 6144 MB or higher. 8 GB is ideal.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Connecting</h2>
+      </div>
+      <div class="connect-box searchable" data-tab="Getting Started" data-title="Server Connection">
+        <div class="connect-row">
+          <span class="connect-label">Server Address</span>
+          <span class="connect-value">minecraft.cooked.mx</span>
+        </div>
+        <div class="connect-row">
+          <span class="connect-label">Alternate Address</span>
+          <span class="connect-value">minecraft-angelo.cooked.mx</span>
+        </div>
+        <div class="connect-row">
+          <span class="connect-label">Port</span>
+          <span class="connect-value">25565 (default)</span>
+        </div>
+        <div class="connect-row">
+          <span class="connect-label">Version</span>
+          <span class="connect-value">Minecraft 1.21.1 · NeoForge</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>First Steps</h2>
+      </div>
+      <div class="searchable" data-tab="Getting Started" data-title="First steps when you spawn">
+        <ol class="steps-list">
+          <li><strong>Claim some land.</strong> Use <code>/ftbchunks</code> to open the chunk map and claim the chunks around your base. This protects your builds from other players.</li>
+          <li><strong>Set a home.</strong> Run <code>/sethome base</code> so you can always get back with <code>/home base</code>.</li>
+          <li><strong>Punch trees, get cobble.</strong> Early game is vanilla-ish. Build a stone pickaxe and head underground for ores.</li>
+          <li><strong>Start your first machine.</strong> Build a Mekanism <strong>Metallurgic Infuser</strong> — it's your gateway into ore processing. Smelt some iron and osmium to make Steel.</li>
+          <li><strong>Set up power.</strong> Craft a Mekanism <strong>Heat Generator</strong> and place it adjacent to a furnace. It generates FE from burning fuel.</li>
+          <li><strong>Upgrade ore processing.</strong> The goal is the 5x chain: <em>Ore → Ore Slurry → Dirty Dust → Dust → Ingot × 5</em>. It needs a Purification Chamber, Crusher, Enrichment Chamber, and Smelter.</li>
+          <li><strong>Learn JEI.</strong> Press <code>R</code> on any item in inventory to see its recipe. Press <code>U</code> to see all uses. This is your best friend.</li>
+          <li><strong>Move into digital storage.</strong> Once you have a decent ore processing setup, build an AE2 ME Controller or a Refined Storage Grid for centralized item management.</li>
+        </ol>
+      </div>
+      <div class="tip">
+        <div class="tip-label">Where to go next</div>
+        After basic ore processing, the natural progression is: AE2/Refined Storage → Mekanism power scaling → Create for bulk crafting → Extreme Reactors for late-game power → CC:Tweaked for full automation.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── Mods Guide ───────────────────────────────────────────── -->
+  <section id="tab-mods" class="tab-panel" role="tabpanel">
+
+    <div class="mod-category">
+      <div class="mod-category-label">Ore Processing</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Mekanism">
+          <div class="mod-tag">Core</div>
+          <h3>Mekanism</h3>
+          <p>The centrepiece. Provides a 5× ore multiplication chain (Enrichment Chamber → Purification Chamber → Crusher → Chemical Dissolution → more). Also covers universal cables, pipes, and many QoL machines like the Digital Miner and Teleporter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Digital Storage</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Applied Energistics 2">
+          <div class="mod-tag">Core</div>
+          <h3>Applied Energistics 2</h3>
+          <p>ME (Matter Energy) networks for centralised item and fluid storage. Supports autocrafting with pattern providers, sub-networks, P2P tunnels for cable management, and wireless terminals. High learning curve, massive payoff.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Refined Storage">
+          <h3>Refined Storage</h3>
+          <p>A friendlier alternative to AE2. Grid interface for unified storage, autocrafting, external storage connections. Less powerful than AE2 at endgame but much easier to start with.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Automation</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Create">
+          <h3>Create</h3>
+          <p>Mechanical contraptions, rotating shafts, conveyor belts, and fluid handling. Brilliant for early automation without electricity. Combine with Mekanism for hybrid factories. Crush ores, press ingots, bulk wash items mechanically.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Integrated Dynamics">
+          <h3>Integrated Dynamics</h3>
+          <p>A logic and scripting framework for complex conditional automation. Read inventories, manage fluids, write decision trees. Steep learning curve — very powerful for conditional item routing.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Pipez">
+          <h3>Pipez</h3>
+          <p>Extremely compact and configurable item, fluid, energy, and gas pipes. Upgradeable tiers from basic to ultimate. Great for high-throughput factories where cable clutter matters.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Modular Routers">
+          <h3>Modular Routers</h3>
+          <p>Block-level item manipulation with pluggable modules. Sender, puller, pusher, vacuum, and detector modules. Excellent for precise item handling where pipes alone aren't flexible enough.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Super Factory Manager">
+          <h3>Super Factory Manager</h3>
+          <p>Script-based factory control. Write rules to move items between inventories based on conditions. Think of it as a declarative item router — powerful once you learn the scripting language.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Energy</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Mekanism Generators">
+          <div class="mod-tag">Core</div>
+          <h3>Mekanism Generators</h3>
+          <p>Heat generators (early), solar panels, wind turbines, gas-burning generators, and the Bio Generator. Scales from your first machine to mid-game power needs.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Extreme Reactors">
+          <h3>Extreme Reactors</h3>
+          <p>Multi-block fission and fusion reactors. Late-game bulk power — a well-built reactor easily puts out millions of FE/t. Requires Yellorium (found in the world) or convert uranium from Mekanism.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Solar Generation">
+          <h3>Solar Generation</h3>
+          <p>Additional solar panel tiers for Forge Energy. Passive power generation — stack them on roofs for a clean power boost mid-game without fuel management.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="RFTools Power">
+          <h3>RFTools Power</h3>
+          <p>Power cells and power monitoring tools. Useful for buffering large amounts of RF/FE and distributing power across dimensions or long distances.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Transport &amp; Logistics</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="EnderIO Conduits">
+          <h3>EnderIO Conduits</h3>
+          <p>Multi-type conduits that bundle item, fluid, energy, and redstone transport in a single cable. The coloured connection filters and I/O settings make complex routing clean and readable.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="XNet">
+          <h3>XNet</h3>
+          <p>Network-based logistics using channels. Route items and fluids to specific destinations with configurable rates — great for large-scale distribution where Pipez gets complicated.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Laser IO">
+          <h3>Laser IO</h3>
+          <p>Wireless item and fluid transfer over line-of-sight using laser emitters and receivers. Perfect for cross-room connections without running pipes through walls.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Building</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Building Gadgets 2">
+          <h3>Building Gadgets 2</h3>
+          <p>Place large structures instantly with a gadget — copy/paste builds, fill walls, replace blocks in bulk. Essential for building big factories without going insane.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Mining Gadgets">
+          <h3>Mining Gadgets</h3>
+          <p>Upgradeable laser mining tools. Mine veins, clear areas, tunnel through rock at speed. Charges from FE — pair with a decent power setup for infinite use.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="LittleTiles">
+          <h3>LittleTiles</h3>
+          <p>Sub-voxel block placement for pixel-perfect builds. Build custom furniture, pipes, and decorative details smaller than a full block. Excellent for aesthetic factory floors.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Framed Blocks">
+          <h3>Framed Blocks</h3>
+          <p>Apply any block texture to shaped frames — stairs, slabs, walls, panels — without needing the original block in that shape. Great for matching textures across builds.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Storage</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Sophisticated Storage">
+          <h3>Sophisticated Storage</h3>
+          <p>Tiered chests and barrels with upgradeable slots, filters, and automation. Much better than vanilla chests — supports sorting, refilling, void, and magnet upgrades.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Sophisticated Backpacks">
+          <h3>Sophisticated Backpacks</h3>
+          <p>Same upgrade system as Sophisticated Storage but for backpacks. Carry filter upgrades to auto-sort what goes in, pick-up upgrades to vacuum items from the ground.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Functional Storage">
+          <h3>Functional Storage</h3>
+          <p>Large, configurable drawer systems. Store massive quantities of a single item per drawer — ideal as a bulk storage buffer before items enter your AE2 or Refined Storage network.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">World &amp; Exploration</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Twilight Forest">
+          <h3>Twilight Forest</h3>
+          <p>A parallel dimension of dense forest and progressive boss encounters. Unlock unique materials — Fiery Ingots, Knightmetal, Steeleaf — needed for high-tier tools and armour. Enter via a ritual pool.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="MineColonies">
+          <h3>MineColonies</h3>
+          <p>Build and manage an NPC colony. Assign workers to mine, farm, craft, and construct. Useful for automating labour-intensive tasks without machines. Can grow into a large self-sustaining town.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="YUNG's Structures">
+          <h3>YUNG's Suite</h3>
+          <p>Better Dungeons, Better Strongholds, Better Mineshafts, Better Ocean Monuments. Replaces vanilla structures with dramatically improved, lore-rich versions. Worth exploring for loot and aesthetics.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Computers</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="CC:Tweaked">
+          <div class="mod-tag">Core</div>
+          <h3>CC:Tweaked</h3>
+          <p>Programmable computers and turtles running Lua 5.2. Automate mining, monitor machines, control reactors, build dashboards, write AE2 autocrafting controllers. Turtles can mine, dig, build, and interact with inventories. The ceiling for what you can build here is basically the sky.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-category">
+      <div class="mod-category-label">Quality of Life</div>
+      <div class="card-grid">
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="Waystones">
+          <h3>Waystones</h3>
+          <p>Craftable teleportation stones you place around the world. Right-click to set a destination, right-click another waystone to warp. Great for linking your base, mines, and other locations.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="FTB Chunks">
+          <h3>FTB Chunks</h3>
+          <p>Chunk claiming and chunkloading. Claimed chunks are protected from other players. Force-loaded chunks keep running even when you're offline — essential for automated farms.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="FTB Essentials">
+          <h3>FTB Essentials</h3>
+          <p>Provides the core server commands: <code>/home</code>, <code>/sethome</code>, <code>/tpa</code>, <code>/back</code>, <code>/rtp</code>, and more. Also includes a friend system and basic social features.</p>
+        </div>
+        <div class="mod-card searchable" data-tab="Mods Guide" data-title="JEI">
+          <h3>JEI — Just Enough Items</h3>
+          <p>Recipe browser. <code>R</code> on any item shows how to craft it. <code>U</code> shows all uses. Search the JEI panel to find any item in the game. Bookmarks, recipe trees, and cheat mode available.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── Commands ─────────────────────────────────────────────── -->
+  <section id="tab-commands" class="tab-panel" role="tabpanel">
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Teleportation</h2>
+      </div>
+      <div class="searchable" data-tab="Commands" data-title="Teleportation Commands">
+        <table class="commands-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/sethome &lt;name&gt;</code></td>
+              <td class="cmd-desc">Save your current location as a named home point.</td>
+            </tr>
+            <tr>
+              <td><code>/home &lt;name&gt;</code></td>
+              <td class="cmd-desc">Teleport to a saved home. Omit name to go to your default home.</td>
+            </tr>
+            <tr>
+              <td><code>/delhome &lt;name&gt;</code></td>
+              <td class="cmd-desc">Delete a saved home.</td>
+            </tr>
+            <tr>
+              <td><code>/tpa &lt;player&gt;</code></td>
+              <td class="cmd-desc">Request to teleport to another player. They must accept.</td>
+            </tr>
+            <tr>
+              <td><code>/tpahere &lt;player&gt;</code></td>
+              <td class="cmd-desc">Request another player teleport to you.</td>
+            </tr>
+            <tr>
+              <td><code>/tpaccept</code></td>
+              <td class="cmd-desc">Accept an incoming teleport request.</td>
+            </tr>
+            <tr>
+              <td><code>/tpdeny</code></td>
+              <td class="cmd-desc">Deny an incoming teleport request.</td>
+            </tr>
+            <tr>
+              <td><code>/warp</code></td>
+              <td class="cmd-desc">List all available server warps.</td>
+            </tr>
+            <tr>
+              <td><code>/warp &lt;name&gt;</code></td>
+              <td class="cmd-desc">Teleport to a named server warp point.</td>
+            </tr>
+            <tr>
+              <td><code>/spawn</code></td>
+              <td class="cmd-desc">Return to the server spawn point.</td>
+            </tr>
+            <tr>
+              <td><code>/rtp</code></td>
+              <td class="cmd-desc">Random teleport — lands you somewhere in the wilderness.</td>
+            </tr>
+            <tr>
+              <td><code>/back</code></td>
+              <td class="cmd-desc">Return to your last location (or death point).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Chunk Management</h2>
+      </div>
+      <div class="searchable" data-tab="Commands" data-title="Chunk Management Commands">
+        <table class="commands-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/ftbchunks</code></td>
+              <td class="cmd-desc">Open the FTB Chunks map. Click chunks to claim them. Hold Shift+drag to claim multiple at once.</td>
+            </tr>
+            <tr>
+              <td><code>/chunkload</code></td>
+              <td class="cmd-desc">Toggle force-loading of the current chunk so it stays active when you're offline.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Server &amp; Performance</h2>
+      </div>
+      <div class="searchable" data-tab="Commands" data-title="Server Performance Commands">
+        <table class="commands-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/spark tps</code></td>
+              <td class="cmd-desc">Show current server TPS (ticks per second). 20 TPS = perfect. Below 15 = lagging.</td>
+            </tr>
+            <tr>
+              <td><code>/spark profiler start</code></td>
+              <td class="cmd-desc">Begin a performance profiling session. Run for ~2 minutes then stop.</td>
+            </tr>
+            <tr>
+              <td><code>/spark profiler stop</code></td>
+              <td class="cmd-desc">Stop profiling and get a link to the detailed report. Share with Angelo if the server is struggling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+  <section id="tab-faq" class="tab-panel" role="tabpanel">
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Shaders — how to install">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            Do I need to do anything special to use shaders?
+          </button>
+          <div class="faq-answer">
+            <p>Yes. The base pack doesn't ship with a shader loader. Add <strong>Oculus</strong> and <strong>Embeddium</strong> to your CurseForge instance's mods folder — both are compatible with NeoForge 1.21.1 and work together as a shader/rendering pair.</p>
+            <p>Then drop a shaderpack <code>.zip</code> into the <code>shaderpacks</code> folder inside your instance directory. In-game, go to Options → Video Settings → Shaders to activate it.</p>
+            <p><strong>Recommended shaderpacks:</strong> Complementary Reimagined (best balance), BSL Shaders (classic, performant), Sildur's Vibrant (saturated and colourful).</p>
+            <p>Shaders are GPU-heavy. On integrated graphics or older cards, stick to Sildur's Lite or skip shaders entirely.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Server lag — what to do">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            The server is lagging — what should I do?
+          </button>
+          <div class="faq-answer">
+            <p>Run <code>/spark tps</code> to check the current tick rate. 20 TPS is perfect. Below 15 you'll feel stuttering.</p>
+            <p>If it's low, run <code>/spark profiler start</code>, wait about 2 minutes, then <code>/spark profiler stop</code>. Spark will return a URL with a detailed breakdown of what's eating server time. Share it with Angelo.</p>
+            <p>Common causes: overly complex Create contraptions running all the time, uncapped item sorters, too many loaded chunks, or a CC:Tweaked turtle loop gone wrong. If you suspect your builds are the issue, try turning them off temporarily and watching TPS.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Land claiming chunks">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            Can I claim land to protect my builds?
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Use <code>/ftbchunks</code> to open the map. Click individual chunks to claim them, or hold Shift and drag to claim a region at once. Claimed chunks show your colour on the map.</p>
+            <p>Claimed chunks prevent other players from breaking blocks or stealing items inside them. You can also force-load claimed chunks so they stay active when you're offline — useful for automated farms and reactors.</p>
+            <p>There's a claim limit per player. Talk to Angelo if you need more.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Where to start automation">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            Where do I start with automation?
+          </button>
+          <div class="faq-answer">
+            <p>Start with <strong>Mekanism ore processing</strong>. The basic chain: Enrichment Chamber → Purification Chamber → Crusher, fed by the ore. You'll get 3–4 ingots per ore immediately. Full 5× takes a bit more machinery but it's worth it.</p>
+            <p>Once you have a steady ore output, move to <strong>AE2</strong> or <strong>Refined Storage</strong> for centralised item management. Refined Storage is friendlier to learn. AE2 is more powerful but has a steeper learning curve.</p>
+            <p><strong>Create</strong> is great for early mechanical automation before you have power infrastructure. Use it for bulk crushing, pressing, and washing.</p>
+            <p>Mid-game progression: AE2 autocrafting → Extreme Reactors for power → CC:Tweaked for full scripted automation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Power system — which one to use">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            What power system should I use?
+          </button>
+          <div class="faq-answer">
+            <p>Everything in the pack runs on Forge Energy (FE), also called RF. It's all compatible — any generator works with any machine.</p>
+            <p><strong>Early game:</strong> Mekanism Generators. Start with a Heat Generator (free power from lava). Add solar panels on your roof. Wind turbines in high/exposed areas. Bio generators for biomass.</p>
+            <p><strong>Mid game:</strong> Mekanism Fission or a small Extreme Reactors setup. Scale up solar arrays with Solar Generation.</p>
+            <p><strong>Late game:</strong> Extreme Reactors fusion reactor. A well-built setup generates 10M+ FE/t — more than enough for anything.</p>
+            <p>Buffer your power with energy cells (Mekanism or RFTools Power) so generation spikes don't cause brownouts in machines.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="Twilight Forest how to enter">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            How do I get to the Twilight Forest?
+          </button>
+          <div class="faq-answer">
+            <p>Dig a 2×2 pool of water (you can make it larger). Surround it with flowers, mushrooms, or any natural plants. Throw a diamond into the pool. The sky will darken and a portal will form — step in to enter the Twilight Forest.</p>
+            <p>The forest is a separate dimension with biomes, dungeons, and bosses. Go in order: Naga → Lich → Minoshroom → Hydra → Knight Phantoms → Ur-Ghast → Snow Queen → Final Castle. Each boss drops items needed to progress to the next.</p>
+            <p>Unique materials from the Twilight Forest (Fiery Ingots, Steeleaf, Knightmetal) are used in high-tier tools and armour.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="AE2 getting started Applied Energistics">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            How do I get started with AE2?
+          </button>
+          <div class="faq-answer">
+            <p>First, make a <strong>Charger</strong> and use it to charge a <strong>Certus Quartz Crystal</strong> to get a <strong>Charged Certus Quartz Crystal</strong>. You'll need this for early crafting.</p>
+            <p>Find Quartz Clusters underground (they look like purplish growths on stone). Mine them for Certus Quartz. You also need <strong>Fluix Dust</strong> — throw Charged Certus, Nether Quartz, and Redstone Dust into water simultaneously.</p>
+            <p>Build an <strong>ME Controller</strong> (the multiblock centrepiece), connect it with <strong>ME Cable</strong>, then attach <strong>ME Drives</strong> (to hold storage cells), a <strong>ME Terminal</strong> or <strong>Crafting Terminal</strong>, and at least one <strong>ME Interface</strong> for item I/O.</p>
+            <p>JEI is your best friend for AE2 recipes — search "AE2" to filter. There are also good written guides on the AE2 wiki.</p>
+          </div>
+        </div>
+
+        <div class="faq-item searchable" data-tab="FAQ" data-title="CC:Tweaked computers turtles programming">
+          <button class="faq-question" aria-expanded="false">
+            <span class="faq-chevron">▶</span>
+            How do I use CC:Tweaked computers and turtles?
+          </button>
+          <div class="faq-answer">
+            <p>Craft a <strong>Computer</strong> and right-click it to open the terminal. It runs Lua 5.2. Type <code>help</code> to see built-in commands.</p>
+            <p><strong>Turtles</strong> are mobile robots — craft one (requires a pickaxe to mine), right-click to open its terminal, and program it with Lua. Built-in API: <code>turtle.forward()</code>, <code>turtle.dig()</code>, <code>turtle.place()</code>, <code>turtle.suck()</code>, <code>turtle.drop()</code>, etc.</p>
+            <p>Turtles can interact with inventories: <code>turtle.suck()</code> pulls items from the chest in front, <code>turtle.drop()</code> puts items into it. Combine with <code>peripheral.wrap()</code> to read machines.</p>
+            <p>Fuel turtles with coal, charcoal, or any burnable item — use <code>turtle.refuel()</code>. Mining turtles have a pickaxe built in.</p>
+            <p>A good starter project: a <code>mine</code> program that digs a 3-wide tunnel while torching walls. Progress from there to AE2 integration and reactor monitoring.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    Malarik Direwolf — Private Server Guide · minecraft.cooked.mx
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

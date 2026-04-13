@@ -1,0 +1,9 @@
+{
+  "name": "minecraft-guide",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts",
+    "build": "echo 'No build step needed'"
+  }
+}
