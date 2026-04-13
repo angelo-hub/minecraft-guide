@@ -183,6 +183,17 @@
   const statusDot     = document.getElementById("status-dot");
   const statusText    = document.getElementById("status-text");
   const statusPlayers = document.getElementById("status-players");
+  const statusDivider = document.getElementById("status-divider");
+  const statusTps     = document.getElementById("status-tps");
+  const statusMspt    = document.getElementById("status-mspt");
+
+  function clearStats() {
+    statusPlayers.textContent = "";
+    statusDivider.className   = "status-divider";
+    statusTps.textContent     = "";
+    statusTps.className       = "";
+    statusMspt.textContent    = "";
+  }
 
   async function fetchStatus() {
     statusDot.className = "status-dot checking";
@@ -191,22 +202,41 @@
       const data = await res.json();
 
       if (data.online) {
-        statusDot.className  = "status-dot online";
+        statusDot.className    = "status-dot online";
         statusText.textContent = "Online";
+
         if (data.players !== undefined) {
-          statusPlayers.textContent = `· ${data.players.online}/${data.players.max} players`;
+          statusPlayers.textContent = `· ${data.players.online}/${data.players.max}`;
         } else {
           statusPlayers.textContent = "";
+        }
+
+        if (data.tps !== undefined) {
+          statusDivider.className = "status-divider visible";
+
+          const tps = data.tps;
+          statusTps.textContent = `${tps.toFixed(1)} TPS`;
+          statusTps.className   = tps >= 18 ? "tps-good" : tps >= 14 ? "tps-warn" : "tps-bad";
+
+          if (data.mspt !== undefined && data.mspt >= 0) {
+            statusMspt.textContent = `· ${data.mspt.toFixed(1)}ms`;
+          } else {
+            statusMspt.textContent = "";
+          }
+        } else {
+          statusDivider.className = "status-divider";
+          statusTps.textContent   = "";
+          statusMspt.textContent  = "";
         }
       } else {
         statusDot.className    = "status-dot offline";
         statusText.textContent = "Offline";
-        statusPlayers.textContent = "";
+        clearStats();
       }
     } catch {
       statusDot.className    = "status-dot offline";
       statusText.textContent = "Unknown";
-      statusPlayers.textContent = "";
+      clearStats();
     }
   }
 
