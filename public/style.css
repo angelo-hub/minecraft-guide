@@ -514,6 +514,132 @@ mark {
   padding: 0 0.1em;
 }
 
+/* ── Server health charts ────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.range-btns {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.range-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.range-btn:hover  { color: var(--text-bright); border-color: var(--border-soft); }
+.range-btn.active { background: var(--amber-glow); border-color: var(--amber-dim); color: var(--amber); }
+
+.health-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.health-chart-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem 0.6rem;
+}
+
+.health-chart-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.health-current {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-bright);
+}
+
+.sparkline {
+  display: block;
+  width: 100%;
+  height: 64px;
+  overflow: visible;
+}
+
+@media (max-width: 540px) {
+  .health-charts { grid-template-columns: 1fr; }
+}
+
+/* JVM analysis panel */
+.jvm-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.jvm-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+}
+.jvm-stat-card.warn  { border-left: 3px solid #f59e0b; }
+.jvm-stat-card.alert { border-left: 3px solid #ef4444; }
+.jvm-stat-card.good  { border-left: 3px solid #22c55e; }
+
+.jvm-stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+.jvm-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-bright);
+}
+.jvm-stat-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+.jvm-advice {
+  background: var(--amber-glow);
+  border: 1px solid rgba(176, 120, 24, 0.3);
+  border-radius: var(--radius);
+  color: var(--amber);
+  font-size: 0.82rem;
+  margin-top: 0.6rem;
+  padding: 0.6rem 0.9rem;
+}
+.jvm-advice + .jvm-advice { margin-top: 0.35rem; }
+.jvm-advice.alert {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+}
+
 /* ── Notice/tip blocks ───────────────────────────────────────── */
 .tip {
   background: var(--cyan-glow);

@@ -44,6 +44,41 @@
   <!-- ─── Getting Started ─────────────────────────────────────── -->
   <section id="tab-getting-started" class="tab-panel active" role="tabpanel">
 
+    <!-- Health charts — shown by JS only when RCON data is available -->
+    <div class="section" id="health-section" style="display:none">
+      <div class="section-header">
+        <span class="section-icon">⬡</span>
+        <h2>Server Health</h2>
+        <div class="range-btns" id="range-btns">
+          <button class="range-btn active" data-hours="1">1h</button>
+          <button class="range-btn" data-hours="6">6h</button>
+          <button class="range-btn" data-hours="24">24h</button>
+          <button class="range-btn" data-hours="168">7d</button>
+        </div>
+      </div>
+      <div class="health-charts">
+        <div class="health-chart-box">
+          <div class="health-chart-label">TPS <span class="health-current" id="tps-current"></span></div>
+          <svg id="tps-chart" class="sparkline" viewBox="0 0 600 64" preserveAspectRatio="none" aria-label="TPS history"></svg>
+        </div>
+        <div class="health-chart-box">
+          <div class="health-chart-label">MSPT <span class="health-current" id="mspt-current"></span></div>
+          <svg id="mspt-chart" class="sparkline" viewBox="0 0 600 64" preserveAspectRatio="none" aria-label="MSPT history"></svg>
+        </div>
+        <div class="health-chart-box">
+          <div class="health-chart-label">JVM RSS <span class="health-current" id="jvm-rss-current"></span></div>
+          <svg id="jvm-rss-chart" class="sparkline" viewBox="0 0 600 64" preserveAspectRatio="none" aria-label="JVM memory history"></svg>
+        </div>
+        <div class="health-chart-box">
+          <div class="health-chart-label">Free RAM <span class="health-current" id="ram-avail-current"></span></div>
+          <svg id="ram-avail-chart" class="sparkline" viewBox="0 0 600 64" preserveAspectRatio="none" aria-label="Available RAM history"></svg>
+        </div>
+      </div>
+
+      <!-- JVM analysis panel — populated by JS -->
+      <div id="jvm-analysis" style="display:none; margin-top:0.75rem;"></div>
+    </div>
+
     <div class="section">
       <div class="section-header">
         <span class="section-icon">⬡</span>
